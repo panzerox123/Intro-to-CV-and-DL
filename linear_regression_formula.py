@@ -14,7 +14,7 @@ len_x = len(X)
 len_y = len(Y)
 x_sum = 0 
 y_sum = 0
-for i in range(0,len_x-1):
+for i in range(0,len_x):
     x_sum = x_sum + X[i]
     y_sum = y_sum + Y[i]
 
@@ -23,10 +23,14 @@ Y_mean = y_sum/len_y
 
 #print(Y_mean, X_mean)
 
-slope = 0
+slope_num = 0
+slope_den = 0
 
-for i in range(0,len_x-1):
-    slope = slope + (X[i]-X_mean)*(Y[i]-Y_mean)/(X[i]-X_mean)**2
+for i in range(0,len_x):
+    slope_num = slope_num + (X[i]-X_mean)*(Y[i]-Y_mean)
+    slope_den = slope_den + (X[i]-X_mean)**2
+
+slope=slope_num/slope_den
 
 C_term = Y_mean - X_mean*slope
 
